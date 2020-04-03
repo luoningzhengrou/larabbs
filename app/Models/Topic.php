@@ -5,6 +5,7 @@ namespace App\Models;
 class Topic extends Model
 {
     protected $fillable = ['title', 'body', 'category_id', 'excerpt', 'slug'];
+    protected $reply_count;
 
     public function replies()
     {
@@ -49,5 +50,11 @@ class Topic extends Model
     public function link($param = [])
     {
         return route('topics.show', array_merge([$this->id, $this->slug], $param));
+    }
+
+    public function updateReplyCount()
+    {
+        $this->reply_count = $this->replies->count();
+        $this->save();
     }
 }
