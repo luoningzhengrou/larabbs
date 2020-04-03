@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "237c73601df2210e46f91686de05539c",
+    "content-hash": "f62140cbf767e57c779d42221f10d487",
     "packages": [
         {
             "name": "cakephp/chronos",
@@ -116,6 +116,54 @@
                 "lpm"
             ],
             "time": "2020-03-17T15:24:26+00:00"
+        },
+        {
+            "name": "ckeditor/ckeditor",
+            "version": "4.14.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ckeditor/ckeditor4-releases.git",
+                "reference": "998e43cd6305bca24304b9538a682da123ac5b73"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ckeditor/ckeditor4-releases/zipball/998e43cd6305bca24304b9538a682da123ac5b73",
+                "reference": "998e43cd6305bca24304b9538a682da123ac5b73",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0+",
+                "LGPL-2.1+",
+                "MPL-1.1+"
+            ],
+            "authors": [
+                {
+                    "name": "CKSource",
+                    "homepage": "https://cksource.com"
+                }
+            ],
+            "description": "JavaScript WYSIWYG web text editor.",
+            "homepage": "https://ckeditor.com/ckeditor-4/",
+            "keywords": [
+                "CKEditor",
+                "ckeditor4",
+                "editor",
+                "fckeditor",
+                "html",
+                "javascript",
+                "richtext",
+                "text",
+                "wysiwyg"
+            ],
+            "time": "2020-03-04T13:19:40+00:00"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -2614,6 +2662,73 @@
                 "spatie"
             ],
             "time": "2020-03-03T21:31:02+00:00"
+        },
+        {
+            "name": "summerblue/administrator",
+            "version": "6.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/summerblue/administrator.git",
+                "reference": "c82715c9e0f26973c7fba00ad1dcf3a56eaf5368"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/summerblue/administrator/zipball/c82715c9e0f26973c7fba00ad1dcf3a56eaf5368",
+                "reference": "c82715c9e0f26973c7fba00ad1dcf3a56eaf5368",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "ckeditor/ckeditor": "4.*",
+                "laravel/framework": "6.*",
+                "php": ">=7.0.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "~0.9",
+                "phpunit/phpunit": "~5.7.12"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Frozennode\\Administrator\\AdministratorServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "classmap": [
+                    "src/controllers"
+                ],
+                "psr-0": {
+                    "Frozennode\\Administrator": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Summer",
+                    "email": "summer@learnku.com"
+                }
+            ],
+            "description": "A database interface package for Laravel, modified!",
+            "homepage": "https://github.com/summerblue/administrator",
+            "keywords": [
+                "admin",
+                "administrator",
+                "cms",
+                "database",
+                "laravel",
+                "laravel-administrator"
+            ],
+            "time": "2019-09-20T03:49:58+00:00"
         },
         {
             "name": "summerblue/laravel-active",
