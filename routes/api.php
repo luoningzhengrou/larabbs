@@ -37,6 +37,15 @@ Route::prefix('v1')
             Route::post('socials/{social_type}/authorizations','AuthorizationsController@socialStore')
             ->where('social_type', 'weixin')
             ->name('socials.authorizations.store');
+            // 登陆
+            Route::post('authorizations', 'AuthorizationsController@store')
+            ->name('api.authorizations.store');
+            // 刷新 token
+            Route::put('authorizations/current', 'AuthorizationsController@update')
+            ->name('authorization.update');
+            // 删除 token
+            Route::delete('authorizations/current', 'AuthorizationsController@destroy')
+            ->name('authorization.destroy');
         });
 
         Route::middleware('throttle' . config('api.rate_limits.access'))
