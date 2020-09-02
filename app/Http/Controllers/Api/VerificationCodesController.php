@@ -28,7 +28,7 @@ class VerificationCodesController extends Controller
 
         $phone = $captchaData['phone'];
 
-        if (!app()->environment('production')){
+        if (app()->environment('production')){
             $code = '1234';
         }else{
             // 生成 4 位随机数，左侧补 0
@@ -36,7 +36,7 @@ class VerificationCodesController extends Controller
 
             try {
                 $result = $easySms->send($phone,[
-                    'template' => config('easysms.gateways.aliyun.template.register'),
+                    'template' => config('easysms.gateways.aliyun.templates.register'),
                     'data' => [
                         'code' => $code
                     ],

@@ -22,10 +22,11 @@ return [
         ],
         'aliyun' => [
             'access_key_id' => env('SMS_ALIYUN_ACCESS_KEY_ID'),
-            'acces_key_secret' => env('SMS_ALIYUN_ACCESS_KEY_SECRET'),
+            'access_key_secret' => env('SMS_ALIYUN_ACCESS_KEY_SECRET'),
             'sign_name' => 'Larabbs',
             'templates' => [
                 'register' => env('SMS_ALIYUN_TEMPLATE_REGISTER'),
+                'back' => env('SMS_ALIYUN_TEMPLATE_BACK'),
             ]
         ],
     ],
