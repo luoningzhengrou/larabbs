@@ -1,0 +1,23 @@
+<?php
+
+namespace App\Http\Controllers\Api;
+
+use App\Http\Requests\Api\ReplyRequest;
+use App\Http\Resources\ReplyResource;
+use App\Models\Reply;
+use App\Models\Topic;
+
+class RepliesController extends Controller
+{
+    public function store(ReplyRequest $request, Topic $topic, Reply $reply)
+    {
+//        $reply->content = $request->content;
+        $reply->content = $request->toArray()['content'];
+//        print_r($reply->toArray());exit;
+        $reply->topic()->associate($topic);
+        $reply->user()->associate($request->user());
+        $reply->save();
+
+        return new ReplyResource($reply);
+    }
+}
