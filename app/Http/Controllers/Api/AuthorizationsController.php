@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Requests\Api\AuthorizationRequest;
 use App\Http\Requests\Api\SocialAuthorizationRequest;
 use App\Models\User;
+use App\Traits\PassportToken;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
@@ -16,6 +17,8 @@ use Zend\Diactoros\Response as Psr7Response;
 
 class AuthorizationsController extends Controller
 {
+    use PassportToken;
+
     public function socialStore( $type, SocialAuthorizationRequest $request)
     {
         $driver = Socialite::driver($type);
@@ -57,7 +60,8 @@ class AuthorizationsController extends Controller
                 }
                 break;
         }
-        return $this->responseWithToken($token)->setStatusCode(201);
+        $result = $this->getBearerTokenByUser($user, '1', false);
+        return response()->json($result)->setStatusCode(201);
     }
 
     public function store(AuthorizationRequest $originRequest, AuthorizationServer $server, ServerRequestInterface $serverRequest)
