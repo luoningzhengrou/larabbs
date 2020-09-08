@@ -28,7 +28,7 @@ class VerificationCodesController extends Controller
 
         $phone = $captchaData['phone'];
 
-        if (app()->environment('production')){
+        if (!app()->environment('production')){
             $code = '1234';
         }else{
             // 生成 4 位随机数，左侧补 0
@@ -56,7 +56,7 @@ class VerificationCodesController extends Controller
 
         return response()->json([
             'key' => $key,
-            'expired_at' => $expiredAt->toDateString(),
+            'expired_at' => $expiredAt->toDateTimeImmutable(),
         ])->setStatusCode(201);
     }
 }

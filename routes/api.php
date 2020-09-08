@@ -45,8 +45,8 @@ Route::prefix('v1')
             Route::post('weapp/authorizations', 'AuthorizationsController@weappStore')
                 ->name('weapp.authorizations.store');
             // 小程序注册
-            Route::post('weapp/authorizations', 'AuthorizationsController@weappStore')
-            ->name('weapp.authorizations.store');
+            Route::post('weapp/users', 'UsersController@weappStore')
+            ->name('weapp.users.store');
             // 刷新 token
             Route::put('authorizations/current', 'AuthorizationsController@update')
             ->name('authorization.update');
@@ -91,6 +91,8 @@ Route::prefix('v1')
                         ->name('user.show');
                     // 编辑登陆用户信息
                     Route::patch('user', 'UsersController@update')
+                    ->name('user.update');
+                    Route::put('user','UsersController@update')
                     ->name('user.update');
                     // 上传图片
                     Route::post('images', 'ImagesController@store')
