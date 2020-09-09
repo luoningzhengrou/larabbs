@@ -35,7 +35,8 @@ class TopicReplied extends Notification implements ShouldQueue
      */
     public function via($notifiable)
     {
-        return ['database', JPushChannel::class];
+        return ['database'];
+//        return ['database', JPushChannel::class];
     }
 
     public function toPush($notifiable, PushPayload $payload): PushPayload
